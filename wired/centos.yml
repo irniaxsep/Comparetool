@@ -1,0 +1,6 @@
+- hosts: centos
+  tasks:
+  - name: vagrant ssh
+    command: vagrant ssh
+  - name: start hugo
+    command: hugo server

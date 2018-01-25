@@ -1,0 +1,21 @@
+---
+- hosts: all
+  become: true
+  remote_user: vagrant
+  become_method: sudo
+  become_user: root
+
+  tasks:
+
+  - name: Install 'virtualenv' package
+    pip:
+      name: virtualenv
+      executable: pip3
+
+  - name: Create virtualenv
+    become: no
+    pip:
+      virtualenv: "{{ venv_path }}"
+      virtualenv_python: python3.6
+      requirements: "{{ requirements_path }}" 
+
